@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Password - Foodwagon</title>
+    <link rel="icon" href="/image/foodwagonlogo-1.png" />
+    <link rel="stylesheet" href="/style/auth.css" />
+    <style>
+      /* Toast Notification Styles */
+      .toast {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: none;
+        font-size: 0.875rem;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      .toast.show {
+        display: block;
+        opacity: 1;
+      }
+
+      .toast.error {
+        background-color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader-overlay" id="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="login-container hidden" id="content">
+      <div class="logo">
+        <h2>
+          Reset <a href="/index.html"><span>Password</span></a>
+        </h2>
+        <small>We'll send you a code to reset your password.</small>
+      </div>
+
+      <form id="step1">
+        <div class="input-group">
+          <input type="email" id="email" required />
+          <label for="email">Enter Your Email</label>
+        </div>
+        <button type="button" id="sendOtpBtn">Send OTP</button>
+        <small>Remembered it? <a href="/page/login.html">Login</a></small>
+      </form>
+
+      <form id="step2" class="hidden">
+        <div class="input-group">
+          <input type="text" id="otp" required />
+          <label for="otp">Enter OTP</label>
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            id="password"
+            class="custom-password"
+            required
+            data-password=""
+          />
+          <label for="password">New Password</label>
+          <input type="hidden" name="password" id="hidden-password" />
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            id="confirm-password"
+            class="custom-password"
+            required
+            data-password=""
+          />
+          <label for="confirm-password">Confirm Password</label>
+          <input type="hidden" id="hidden-confirm-password" />
+          <span class="validation-message"></span>
+        </div>
+
+        <button type="submit">Reset Password</button>
+      </form>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">OTP sent successfully!</div>
+
+    <script src="/js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sendOtpBtn = document.getElementById("sendOtpBtn");
+        const step1 = document.getElementById("step1");
+        const step2 = document.getElementById("step2");
+        const toast = document.getElementById("toast");
+
+        // Function to show toast notifications
+        const showToast = (message, isError = false) => {
+          toast.textContent = message;
+          toast.classList.add("show");
+          if (isError) {
+            toast.classList.add("error");
+          }
+          setTimeout(() => {
+            toast.classList.remove("show");
+            toast.classList.remove("error");
+          }, 3000); // Hide toast after 3 seconds
+        };
+
+        sendOtpBtn.addEventListener("click", function () {
+          const email = document.getElementById("email").value;
+          if (email) {
+            // Simulate sending OTP
+            // You can replace this with an actual API call
+            showToast(`OTP sent to ${email}`);
+            step1.classList.add("hidden");
+            step2.classList.remove("hidden");
+          } else {
+            showToast("Please enter a valid email.", true); // Show error toast
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

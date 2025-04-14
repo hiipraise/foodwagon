@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Foodwagon</title>
+    <link rel="icon" href="image/foodwagonlogo-1.png" />
+    <link rel="stylesheet" href="/style/auth.css" />
+  </head>
+  <body>
+    <!-- Loader Overlay -->
+    <div class="loader-overlay" id="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="login-container hidden" id="content">
+      <div class="logo">
+        <h2>
+          Sign Up for <a href="/index.html"><span>food</span>wagon</a>
+        </h2>
+        <small>Join us to enjoy delicious meals delivered to your door!</small>
+      </div>
+
+      <form>
+        <div class="input-group">
+          <input type="text" id="fullname" required />
+          <label for="fullname">Full Name</label>
+        </div>
+        <div class="input-group">
+          <input type="email" id="email" required />
+          <label for="email">Email</label>
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            id="password"
+            class="custom-password"
+            required
+            data-password=""
+          />
+          <label for="password">Password</label>
+          <input type="hidden" name="password" id="hidden-password" />
+          <div class="password-requirements"></div>
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            id="confirm-password"
+            class="custom-password"
+            required
+            data-password=""
+          />
+          <label for="confirm-password">Confirm Password</label>
+          <input
+            type="hidden"
+            name="confirm-password"
+            id="hidden-confirm-password"
+          />
+          <span class="validation-message"></span>
+          <!-- Added for validation feedback -->
+        </div>
+
+        <button type="submit">Sign Up</button>
+        <small>Already have an account? <a href="login.html">Login</a></small>
+      </form>
+    </div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

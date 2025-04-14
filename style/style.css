@@ -62,7 +62,7 @@ header > div {
   align-items: center;
   gap: 2.5vmin;
   img {
-    height: 5vh;
+    height: clamp(15px, 3vw, 50px);
   }
   p {
     color: var(--primary-color);
@@ -73,15 +73,28 @@ header > div {
     font-size: clamp(1rem, 3vw, 3rem);
   }
   .search-food-btn {
+    position: relative;
     color: var(--text-color);
-    text-decoration: none;
     background: transparent;
     border: none;
-    &:hover {
-      text-decoration: underline;
-      text-decoration-color: var(--text-color);
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--text-color);
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
   }
+
   .login-btn {
     text-decoration: none;
     color: var(--accent-color);
@@ -193,13 +206,25 @@ main {
         text-decoration: none;
       }
       .pickup {
+        position: relative;
         text-decoration: none;
         border: none;
         background: transparent;
         color: var(--light-gray);
-        &:hover {
-          text-decoration: underline;
-          text-decoration-color: var(--light-gray);
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0px;
+          width: 0;
+          height: 1px;
+          background-color: var(--light-gray);
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
         }
       }
     }
@@ -452,13 +477,26 @@ h6 {
   height: 150px;
 }
 .searchfood-name-1 {
+  position: relative;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
   font-size: 0.8rem;
   margin-top: 10px;
-  &:hover {
-    text-decoration: underline;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 0;
+    height: 1px;
+    background-color: var(--text-color);
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 }
 
@@ -689,11 +727,25 @@ h6 {
 
 .footer-cities-list {
   line-height: 30px;
+
   a {
+    position: relative;
     color: var(--gray);
     text-decoration: none;
-    &:hover {
-      text-decoration: underline;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 0;
+      background-color: var(--gray);
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
     }
   }
 }

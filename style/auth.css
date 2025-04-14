@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --primary-color: #ffb30e;
+  --secondary-color: #f17228;
+  --accent-color: #ffae00;
+  --text-color: #000;
+  --bg-color: #fff;
+  --primary-font-size: 1rem;
+  --secondary-font-size: 1.5rem;
+  --white: #fff;
+  --light-gray: #757575;
+  --dark-gray: #212121;
+  --gray: #cfcfcf;
+  --light-orange: rgba(234, 100, 15, 0.07);
+  --light-orange-2: rgba(236, 100, 15, 0.2);
+  --medium-orange: rgba(255, 154, 14, 0.9);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Host Grotesk", serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgba(117, 117, 117, 5%);
+
+  /* background-color: rgba(241, 114, 40, 10%); */
+}
+
+/* Loader Styles */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(254, 250, 241, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hide content initially */
+.login-container.hidden {
+  display: none;
+}
+
+/* Login Container */
+.login-container {
+  margin: 0 5vw;
+  background: var(--bg-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+h2 {
+  color: var(--primary-color);
+  font-weight: 900;
+  font-size: var(--secondary-font-size);
+  /* margin-bottom: 0.5rem; */
+}
+
+h2 span {
+  color: var(--secondary-color);
+}
+
+h2 > a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.logo small {
+  color: var(--light-gray);
+  font-size: 0.9rem;
+  display: block;
+  /* margin-bottom: 1.5rem; */
+}
+
+/* Input Group for Floating Outlined Labels */
+.input-group {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.custom-password {
+  font-family: "Host Grotesk", serif; /* Match the font */
+  letter-spacing: 2px; /* Add spacing between bullet characters for readability */
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 10px;
+  font-size: 0.85rem;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  outline: none;
+  background: none;
+  transition: border-color 0.3s;
+  font-family: "Host Grotesk", serif;
+}
+
+.input-group input:focus {
+  border-color: var(--primary-color);
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  /* font-size: var(--primary-font-size); */
+  color: var(--light-gray);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  padding: 0 5px;
+  font-family: "Host Grotesk", serif;
+}
+
+/* Validation message styling */
+.validation-message {
+  display: block;
+  font-size: 0.8rem;
+  color: #ff0000; /* Red for error */
+  margin-top: 5px;
+  font-family: "Host Grotesk", serif;
+}
+
+/* Error state for input (when passwords don't match) */
+.input-group.error input {
+  border-color: #ff0000;
+}
+
+/* Success state for input (when passwords match) */
+.input-group.success input {
+  border-color: #28a745; /* Green for success */
+}
+
+/* Floating Outlined Label Effect */
+.input-group input:focus + label,
+.input-group input.filled + label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  background: var(--bg-color); /* Covers the border where the label sits */
+}
+
+input[type="hidden"] {
+  display: none;
+}
+
+/* Button */
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Host Grotesk", serif;
+  font-size: var(--primary-font-size);
+  transition: background-color 0.3s;
+  background-color: var(--accent-color);
+}
+
+/* Footer Link */
+.login-container small {
+  display: block;
+  color: var(--light-gray);
+}
+small {
+  margin-top: 10px;
+}
+
+small > a {
+  color: var(--light-gray);
+  text-decoration: underline;
+}

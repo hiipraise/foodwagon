@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Foodwagon</title>
+    <link rel="icon" href="image/foodwagonlogo-1.png" />
+    <link rel="stylesheet" href="/style/auth.css" />
+  </head>
+  <body>
+    <!-- Loader Overlay -->
+    <div class="loader-overlay" id="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="login-container hidden" id="content">
+      <div class="logo">
+        <h2>
+          Login to <a href="/index.html"><span>food</span>wagon</a>
+        </h2>
+        <small
+          >If you forget your password you can
+          <a href="reset.html">reset it</a>.</small
+        >
+      </div>
+
+      <form>
+        <div class="input-group">
+          <input type="text" id="username-email" required />
+          <label for="username-email">Username or Email</label>
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            id="password"
+            class="custom-password"
+            required
+            data-password=""
+          />
+          <label for="password">Password</label>
+          <input type="hidden" name="password" id="hidden-password" />
+        </div>
+
+        <button type="submit">Login</button>
+        <small><a href="signup.html">Sign up</a> if you need an account.</small>
+      </form>
+    </div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>
