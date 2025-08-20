@@ -3,6 +3,7 @@
 :root {
   --primary-color: #ffb30e;
   --secondary-color: #f17228;
+  --teritary-color: #46f128;
   --accent-color: #ffae00;
   --text-color: #000;
   --bg-color: #fff;
@@ -13,6 +14,7 @@
   --dark-gray: #212121;
   --gray: #cfcfcf;
   --light-orange: rgba(234, 100, 15, 0.07);
+  --light-green: rgba(51, 234, 15, 0.07);
   --light-orange-2: rgba(236, 100, 15, 0.2);
   --medium-orange: rgba(255, 154, 14, 0.9);
 }
@@ -70,7 +72,7 @@ header > div {
       color: var(--secondary-color);
     }
     font-weight: 900;
-    font-size: clamp(1rem, 3vw, 3rem);
+    font-size: clamp(1.2rem, 2.8vw, 3rem);
   }
   .search-food-btn {
     position: relative;
@@ -153,12 +155,15 @@ header > span {
 
 main {
   position: relative;
-  top: 81px;
+  top: 3rem;
 }
 
 .banner {
   width: 100%;
   padding: 5vw;
+  @media (max-width: 1024px) {
+    padding: 30px 15px;
+  }
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,20 +265,36 @@ main {
 /* flash sales section  */
 
 .flash-deals {
-  margin: 5vw;
+  margin: 30px 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 160px;
+  display: flex;
+  @media (min-width: 1024px) {
+    margin: 5vw;
+    /* justify-content: center; */
+  }
 }
 
 .box-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  @media (min-width: 640px) {
+    justify-content: center;
+    gap: 50px;
+  }
+}
+
+.boxes {
+  padding: 5vw;
 }
 
 .box-1,
 .box-2,
 .box-3,
 .box-4 {
-  height: 220px;
+  height: 80px;
   border-radius: 10px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -310,6 +331,9 @@ main {
 .features-section {
   width: 100%;
   padding: 5vw;
+  @media (max-width: 1024px) {
+    /* padding: 0 15px; */
+  }
   background-color: var(--light-orange);
 }
 
@@ -322,9 +346,13 @@ h3 {
 
 .features {
   margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  @media (min-width: 1024px) {
+    justify-content: center;
+  }
+  width: 100%;
+  overflow-x: scroll;
+  gap: 20px;
 }
 
 .features-all {
@@ -348,10 +376,13 @@ h4 {
 
 .items-order {
   margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
-  justify-items: center;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  gap: 20px;
+  @media (min-width: 1024px) {
+    justify-content: center;
+  }
 }
 
 .food-type {
@@ -393,9 +424,11 @@ h5 {
 .discount-section-1 {
   margin-top: 50px;
   margin-bottom: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 20px;
   justify-items: center;
 }
 
@@ -406,14 +439,26 @@ h5 {
   margin-bottom: 10px;
 }
 
-.tomorrow-btn,
 .now-btn {
+  border: none;
+  background-color: var(--light-green);
+  color: var(--teritary-color);
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 8px 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.tomorrow-btn {
   border: none;
   background-color: var(--light-orange);
   color: var(--secondary-color);
   border-radius: 3px;
   font-weight: bold;
-  padding: 3px 15px;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .rating {
@@ -443,6 +488,7 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* margin: 5vw; */
 }
 
 h6 {
@@ -458,9 +504,14 @@ h6 {
 
 .imgs-searchfood {
   margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  @media (min-width: 1024px) {
+    justify-content: center;
+  }
+  overflow-y: hidden;
+  width: 100%;
+  overflow-x: scroll;
+  gap: 40px;
 }
 
 .img-foodname2 {
@@ -510,18 +561,15 @@ h6 {
 
 .ad-card {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  gap: 2vmin;
+  gap: 20px;
   background-color: var(--white);
   align-items: center;
   width: 100%;
   padding: 2vw;
   border-radius: 25px;
   box-shadow: 1px 7px 30px rgba(255, 174, 0, 0.3);
-  @media (max-width: 594px) {
-    justify-content: center;
-  }
 }
 
 .ad-context {
@@ -611,14 +659,15 @@ h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 35px;
 }
 
 .food-details-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2vmin;
+  /* gap: 20px; */
+  border-radius: 20px;
   background-color: var(--white);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
   @media (max-width: 900px) {
@@ -643,16 +692,32 @@ h6 {
 
 .card-detail-left {
   text-align: center;
+  padding: 5vw;
   @media (max-width: 900px) {
     text-align: center;
   }
 }
 
 .card-detail-right > img {
-  height: 35vw;
   @media (max-width: 900px) {
     width: 100%;
     height: 100%;
+  }
+}
+
+.order-one-img {
+  border-bottom-left-radius: 24px;
+  border-top-left-radius: 24px;
+  @media (max-width: 1024px) {
+    border-radius: 24px;
+  }
+}
+
+.order-two-img {
+  border-bottom-right-radius: 24px;
+  border-top-right-radius: 24px;
+  @media (max-width: 1024px) {
+    border-radius: 24px;
   }
 }
 
@@ -681,7 +746,10 @@ h6 {
 .ready-order-detail {
   color: var(--white);
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 2rem;
+  @media (max-width: 640px) {
+    font-size: 1.2rem;
+  }
 }
 
 .ready-order-btn {
@@ -689,11 +757,15 @@ h6 {
   background-color: var(--secondary-color);
   color: var(--white);
   font-weight: bolder;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 2rem;
   border: none;
   border-radius: 8px;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   cursor: pointer;
+  @media (max-width: 640px) {
+    font-size: 0.6rem;
+    padding: 0.4rem 1rem;
+  }
 }
 
 /* footer-section */
@@ -792,13 +864,15 @@ h6 {
 }
 .email-input {
   background-color: #424242;
-  padding-top: 8px;
+  /* padding-top: 8px;
   padding-bottom: 8px;
+  padding-right: 55px; */
+  padding-right: 30px;
   padding-left: 15px;
-  padding-right: 55px;
   border-radius: 5px;
   border: none;
   font-size: 12px;
+  color: var(--white);
 }
 .subscribe-btn {
   color: var(--white);
